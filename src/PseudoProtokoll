@@ -1,0 +1,45 @@
+ Einfach ein Pseudoprotokoll
+ Hier werden Befehle des Clients und mögliche Antworten zurückgegeben.
+
+Allgemein an Position Eins ist immer der Befehl gefolgt von :
+Response: 404 : Argument missing.
+Response: 405 : Verbindung wird abbgebrochen. Nach 3 mal fehlgeschlagenen Login/Register.
+Response: 400 : Commando nicht bekannt.
+
+LOGIN:Username:Pw
+Hier sagt der Client dem Server er möchte sich anmelden mit dem angegebenen Usernamen und PW
+Response: 200 : Alles Ok hat geklappt
+Response: 401 : Falsches Passwort
+Response: 402 : Der Benutzername existiert nicht.
+Response: 404 : Argument missing
+
+REGISTER:Username:Pw
+Hier sagt der client er möchte sich registrieren mit dem Benutzernamen Username und dem angegbenen pw. Das PW wird nicht überprüft und kann leer sein
+Response: 200 : Alles Ok hat geklappt
+Response: 403 : Der Benutzername ist bereits vergeben
+Response: 404 : Argument missing
+
+Say:To:MSg
+to steht für den namen des Ziels, msg für die Nachricht. Es dürfen keine Doppelpunkte verwendet werden. Kann nur im angemeldeten Zustand benutzt werden.
+Response: 202 : Alles ok.
+Response: 402 : Der Benutzername existiert nicht
+Response: 405 : Der Empfänger ist offline.
+Response: 404 : Argument missing
+
+LOGOUT
+Es werden alle nachfolgenden Argumente ignoriert. Kann nur im angemeldeten Zustand benutzt werden.
+Response: 202 : Alles ok.
+Response: 500 : Server Fehler. Client einfach schließen.
+
+DELETE:Username:PW
+Es wird der Benutzer mit dem angegebenen Benutzernamen und dem PW gelöscht. Kann nur im angemeldeten Zustand benutzt werden.
+Response: 202 : Alles ok.
+Response: 401 : Falsches Passwort
+Response: 402 : Der Benutzername existiert nicht.
+Response: 404 : Argument missing
+
+
+Mögliche Erweiterungen:
+Client prozess terminiert nach LOGOUT
+Doppelte Anmeldung verhindern.
+Löschen nur für den eingeloggter Benutzer
