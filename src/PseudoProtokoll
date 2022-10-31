@@ -19,7 +19,7 @@ Response: 200 : Alles Ok hat geklappt
 Response: 403 : Der Benutzername ist bereits vergeben
 Response: 404 : Argument missing
 
-Say:To:MSg
+SAY:To:MSg
 to steht für den namen des Ziels, msg für die Nachricht. Es dürfen keine Doppelpunkte verwendet werden. Kann nur im angemeldeten Zustand benutzt werden.
 Response: 202 : Alles ok.
 Response: 402 : Der Benutzername existiert nicht
